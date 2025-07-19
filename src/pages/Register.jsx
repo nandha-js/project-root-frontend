@@ -22,11 +22,11 @@ const Register = () => {
     setError("");
     setLoading(true);
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/register", {
-        username,
-        email,
-        password,
-      });
+      // Use backend URL from environment variable
+      const res = await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}/api/auth/register`,
+        { username, email, password }
+      );
 
       setMessage(res.data.message);
       setUsername("");

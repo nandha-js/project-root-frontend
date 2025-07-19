@@ -10,15 +10,17 @@ const ResetPassword = () => {
   const [newPassword, setNewPassword] = useState("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   const [countdown, setCountdown] = useState(3);
 
   const handleReset = async (e) => {
     e.preventDefault();
     setMessage("");
     setError("");
+    setLoading(true);
     try {
       const res = await axios.post(
-        `http://localhost:5000/api/auth/reset-password/${token}`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/auth/reset-password/${token}`,
         { newPassword }
       );
       setMessage(res.data.message);
@@ -29,6 +31,8 @@ const ResetPassword = () => {
           ? err.response.data.error
           : "Something went wrong"
       );
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -86,15 +90,21 @@ const ResetPassword = () => {
               value={newPassword}
               onChange={(e) => setNewPassword(e.target.value)}
               required
+              disabled={loading}
             />
           </div>
         </div>
 
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white py-3 rounded hover:bg-blue-700 transition text-lg font-semibold shadow"
+          disabled={loading}
+          className={`w-full py-3 rounded transition text-lg font-semibold shadow ${
+            loading
+              ? "bg-blue-400 cursor-not-allowed"
+              : "bg-blue-600 hover:bg-blue-700 text-white"
+          }`}
         >
-          Reset Password
+          {loading ? "Resetting..." : "Reset Password"}
         </button>
 
         <div className="mt-6 text-center text-sm">

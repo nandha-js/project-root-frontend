@@ -15,8 +15,9 @@ const ForgotPassword = () => {
     setError("");
     setLoading(true);
     try {
+      // Use backend URL from environment variable
       const res = await axios.post(
-        "http://localhost:5000/api/auth/forgot-password",
+        `${import.meta.env.VITE_BACKEND_URL}/api/auth/forgot-password`,
         { email }
       );
       setMessage(res.data.message);

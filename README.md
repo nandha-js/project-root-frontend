@@ -1,12 +1,39 @@
-# React + Vite
+# React Auth Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the frontend for the MERN authentication app, built with **React**, **Tailwind CSS**, **Heroicons**, and **Axios**. It integrates with the backend hosted on Render to provide:
 
-Currently, two official plugins are available:
+- User registration
+- User login
+- Forgot password (send reset link)
+- Reset password with token validation
+- Dashboard placeholder (protected route ready)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 **Live Demo**
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Frontend: [https://stately-maamoul-72ee22.netlify.app](https://stately-maamoul-72ee22.netlify.app)  
+Backend API: [https://project-root-backend-6xhb.onrender.com](https://project-root-backend-6xhb.onrender.com)
+
+---
+
+## 🛠 **Tech Stack**
+
+- React
+- Tailwind CSS
+- Axios
+- React Router DOM
+- Heroicons
+
+---
+
+## 📂 **Project Structure**
+
+src/
+├── pages/
+│ ├── Register.jsx
+│ ├── Login.jsx
+│ ├── ForgotPassword.jsx
+│ └── ResetPassword.jsx
+├── App.jsx
+└── main.jsx
